@@ -1,28 +1,37 @@
-# Elections-Scraper
-https://github.com/barborakoci/Elections-Scraper.git
+#Election scraper
 
-python -m venv projekt3
-projekt3\Scripts\Activate.ps1
+##Popis projektu
+Projekt slouží ke stažení výsledků parlamentních voleb z roku 2017. Odkaz najdete *<a href="https://volby.cz/pls/ps2017nss/ps3?xjazyk=CZ">zde</a>*.
 
-python --version         # ověřím verzi Pythonu 3.12.0
-python -m pip --version  # ověřím verzi manažera knihoven, novější zápis 24.0
-# výpis z příkazu 'python -m pip list'
-python -m pip install requests    # ověřit na pypi.org
-python -m pip install beautifulsoup4
-pip install asyncio
-pip install httpx
+##Instalace knihoven
+V souboru requitements.txt najdete seznam knihoven použitých v tomto projektu. 
+Knihovny doporučuji nainstalovat, ideálně ve virtuálním prostředí, pomocí následujících příkazů:
+*python -m pip install requests
+*python -m pip install beautifulsoup4
+*pip install asyncio
+*pip install httpx
 
-# vytvořit soubor requests pomocí pycharm načíst knihovny
-pip freeze > requirements.txt
+##Spuštění programu
+Spuštění programu projekt3.py vyžaduje 2 povinné agrumenty.
+_python projekt3.py <odkaz_uzemniho_celku><vysledny_soubor>_
+Výsledky voleb budou staženy a uloženy do csv souboru.
 
-https://volby.cz/pls/ps2017nss/ps3?xjazyk=CZ
+##Ukázka projektu
+Výsledky hlasování pro okres Chomutov:
+*1. argument: https://volby.cz/pls/ps2017nss/ps32?xjazyk=CZ&xkraj=6&xnumnuts=4202
+*2. argument: vysledky_chomutov.csv
 
-Výsledný soubor budete spouštět pomocí 2 argumentů (ne pomocí funkce input). První argument obsahuje odkaz, který územní celek chcete scrapovat (př. územní celek Prostějov ), druhý argument obsahuje jméno výstupního souboru (př. vysledky_prostejov.csv)
-Pokud uživatel nezadá oba argumenty (ať už nesprávné pořadí, nebo argument, který neobsahuje správný odkaz), program jej upozorní a nepokračuje.
+###Spuštění programu
+_python projekt3.py "https://volby.cz/pls/ps2017nss/ps32?xjazyk=CZ&xkraj=6&xnumnuts=4202" "vysledky_chomutov.csv"_
 
-Následně dopište README.md soubor, který uživatele seznámíte se svým projektem. Jak nainstalovat potřebné knihovny ze souboru requirements.txt, jak spustit váš soubor, příp. doplnit ukázku, kde demonstrujete váš kód na konkrétním odkaze s konkrétním výpisem.
-# zapsat readme
-Nadpisy můžete formátovat pomocí symbolu "#" a odstavce textu můžete psát běžně. Pokud chcete vytvořit tučný text, můžete ho obalit dvojitými hvězdičkami nebo podtržítky. Pro kurzívu se používají jednoduché hvězdičky nebo podtržítka. Pro vytvoření odrážek můžete použít znaménko "-" nebo "*". 
+###Průběh stahování
+Stahuji data z vybrané URL: _https://volby.cz/pls/ps2017nss/ps32?xjazyk=CZ&xkraj=6&xnumnuts=4202_...
+Ukládám výsledky do souboru *vysledky_chomutov.csv*...
+Ukončuji election scraper.
 
+###Částečný výstup
+kód,obec,voliči,obálky,platné hlasy,Občanská demokratická strana,Řád národa.... 
+562980,Bílence,186,113,113,4,1,0,5,5,10,0,0,1,0,0,5,2,4,54,0,1,4,0,2,0,0,15,0
+562998,Blatno,434,287,287,36,0,0,11,17,36,4,2,2,0,0,27,0,6,105,0,1,5,0,2,0,0,32,1
 
 
