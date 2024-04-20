@@ -5,11 +5,8 @@ Projekt slouží ke stažení výsledků parlamentních voleb z roku 2017. Odkaz
 
 ## Instalace knihoven
 V souboru requitements.txt najdete seznam knihoven použitých v tomto projektu. 
-Knihovny doporučuji nainstalovat, ideálně ve virtuálním prostředí, pomocí následujících příkazů:
-* python -m pip install requests
-* python -m pip install beautifulsoup4
-* pip install asyncio
-* pip install httpx
+Knihovny doporučuji nainstalovat, ideálně ve virtuálním prostředí, pomocí následujícího příkazu:
+* pip install -r requirements.txt
 
 ## Spuštění programu
 Spuštění programu projekt3.py vyžaduje 2 povinné agrumenty.
