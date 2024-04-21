@@ -31,7 +31,10 @@ def spust_soubor(uzemni_celek, vystup):
     vsechny_obce = volby_polivka.find_all("td", {"class": "overflow_name", "headers": ["t1sa1 t1sb2", "t2sa1 t2sb2", "t3sa1 t3sb2"]})
     obce = [td.text for td in vsechny_obce if td]
     xvyber = uzemni_celek[-4:]
-    vsechny_url = [f"https://volby.cz/pls/ps2017nss/ps311?xjazyk=CZ&xkraj=6&xobec={kod}&xvyber={xvyber}" for kod in kody_obci]
+    index_kraj = uzemni_celek.find("kraj=")
+    index_numnuts = uzemni_celek.find("&xnumnuts=")
+    kraj = uzemni_celek[index_kraj + len("kraj="):index_numnuts]
+    vsechny_url = [f"https://volby.cz/pls/ps2017nss/ps311?xjazyk=CZ&xkraj={kraj}&xobec={kod}&xvyber={xvyber}" for kod in kody_obci]
     strany = []
 
     print("Získávám názvy stran...")
